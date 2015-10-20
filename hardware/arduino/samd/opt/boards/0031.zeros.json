@@ -1,0 +1,38 @@
+{
+  "id": "zeros",
+  "name": "Arduino M0s",
+  "arch": "samd",
+  "enabled" : true,
+  "uid": [
+    {"vid": "0x2a03", "pid": "0x0053"},
+    {"vid": "0x2a03", "pid": "0x8053"}
+  ],
+  "upload": {
+    "tool": "avrdude",
+    "protocol": "stk500v2",
+    "maximum_size": "262144",
+    "use_1200bps_touch": true,
+    "wait_for_upload_port":  true,
+    "native_usb": true,
+    "speed": 57600
+  },
+  "build": {
+    "mcu": "cortex-m0plus",
+    "f_cpu": "48000000L",
+	"usb_product" : "Arduino M0s",
+    "board": "SAM_ZERO",
+    "core": "arduino",
+    "extra_flags": "-D__SAMD21G18A__ -mthumb",
+    "ldscript": "linker_scripts/gcc/flash_with_bootloader.ld",
+    "variant": "arduino_m0s",
+    "variant_system_lib": "",
+    "vid": "0x2a03",
+    "pid": "0x8053",
+    "section_start": "0x4000",
+    "emu_mcu": "atmega2560"
+  },
+  "bootloader":{
+    "tool":"avrdude",
+    "low_fuse": "0xff"
+  }
+}
